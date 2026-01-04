@@ -28,3 +28,19 @@ jobs:
             VALIDATE_ALL_CODEBASE: false
             VALIDATE_JSON: true
             VALIDATE_CSS: true
+jobs:
+  trivy-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6.0.1
+
+      - name: Run Trivy vulnerability scan
+        uses: aquasecurity/trivy-action@v0.10.3
+        with:
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
+          scan-type: 'fs'
+          vuln-type: 'os,library'
+          directory: './'
