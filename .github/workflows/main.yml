@@ -28,7 +28,7 @@ jobs:
             VALIDATE_ALL_CODEBASE: false
             VALIDATE_JSON: true
             VALIDATE_CSS: true
-jobs:
+
   trivy-scan:
     runs-on: ubuntu-latest
     steps:
